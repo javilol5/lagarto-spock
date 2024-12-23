@@ -1,4 +1,5 @@
 import random
+import reflex
 
 opciones = ['piedra', 'papel', 'tijera', 'lagarto', 'spock']
 reglas = {
@@ -9,9 +10,8 @@ reglas = {
     'spock': ['tijera', 'piedra']
 }
 
-persona = input(f"Elige entre {', '.join(opciones)}: ").lower()
-
 maquina = random.choice(opciones)
+persona = input(f"Elige entre {', '.join(opciones)}: ").lower()
 
 print(f"Tú elegiste: {persona}")
 print(f"La máquina eligió: {maquina}")
