@@ -20,7 +20,7 @@ def opciones():
                 rx.image(src='papel.png'),
             ),
             rx.card(
-                rx.image(src='tijeras.png'),
+                rx.image(src='tijera.png'),
             ),
             rx.card(
                 rx.image(src='lagarto.png'),
@@ -37,6 +37,9 @@ def elecciones():
                 rx.image(src= persona + '.png'),
             ),
             rx.card(
+                rx.image(src= 'vacio.png'),
+            ),
+            rx.card(
                 rx.text(maquina),
                 rx.image(src= 'r' + maquina + '.png'),
             ),
@@ -44,7 +47,6 @@ def elecciones():
 
 @rx.page(route="/", title="lagarto_spock")
 def index() -> rx.Component:
-    # Welcome Page (Index)
     return rx.container(
         rx.vstack(
         rx.color_mode.button(position="top-right"),
