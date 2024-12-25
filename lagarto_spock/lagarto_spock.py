@@ -4,6 +4,7 @@ import reflex as rx
 import random
 from rxconfig import config
 from lagarto_spock.proyecto import maquina
+from lagarto_spock.proyecto import persona
 
 class State(rx.State):
       def a():
@@ -29,6 +30,18 @@ def opciones():
             ),
         ),
 
+def elecciones():
+      return rx.flex(
+            rx.card(
+                rx.text(persona),
+                rx.image(src= persona + '.png'),
+            ),
+            rx.card(
+                rx.text(maquina),
+                rx.image(src= 'r' + maquina + '.png'),
+            ),
+        ),
+
 @rx.page(route="/", title="lagarto_spock")
 def index() -> rx.Component:
     # Welcome Page (Index)
@@ -36,26 +49,10 @@ def index() -> rx.Component:
         rx.vstack(
         rx.color_mode.button(position="top-right"),
         opciones(),
-        #rx.box(
-        #rx.box(question, text_align="right"),
-        #rx.box(answer, text_align="left"),
-        #margin_y="1em",
-        #    ),
-        #rx.box(
-        #rx.foreach(
-        #    State.chat_history,
-        #    lambda messages: qa(messages[0], messages[1]),
-        #    )
-        #),
-        rx.flex(rx.card(
-                rx.image(src='vacio.png'),
-            ),
-            rx.card(
-                rx.image(src= maquina + '.png'),
-            ),
-        ),
+        elecciones(),
         rx.logo(),
-    ),)
+        ),
+    )
 
 
 app = rx.App()
