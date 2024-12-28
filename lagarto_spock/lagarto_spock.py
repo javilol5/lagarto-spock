@@ -65,7 +65,14 @@ def elecciones():
             rx.image(src=State.persona + ".png"),
         ),
         rx.card(
-            rx.image(src="vacio.png"),
+            rx.text(if persona not in opciones:
+                        print(f"Elección no válida. Por favor, elige entre {', '.join(opciones)}.")
+elif persona == maquina:
+    print("¡Es un empate!")
+elif maquina in reglas[persona]:
+    print("¡Ganaste!")
+else:
+    print("Perdiste, mejor suerte la próxima vez.")'),
         ),
         rx.card(
             rx.text(maquina),
