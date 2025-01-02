@@ -2,6 +2,8 @@ import reflex as rx
 import random
 from rxconfig import config
 from lagarto_spock.proyecto import maquina
+from lagarto_spock.proyecto import state
+
 
 
 class State(rx.State):
@@ -14,7 +16,7 @@ class State(rx.State):
     img_src_spock: str = "spock.png"
 
     # Elección del usuario
-    persona: str = "vacio"  # Por defecto, ninguna elección
+    persona: str = "vacio"
 
     def set_persona(self, eleccion: str):
         """Actualizar la elección del usuario."""
@@ -65,19 +67,21 @@ def elecciones():
             rx.image(src=State.persona + ".png"),
         ),
         rx.card(
-#            rx.text(if persona not in opciones:
-#                        print(f"Elección no válida. Por favor, elige entre {', '.join(opciones)}.")
-#elif persona == maquina:
-#    print("¡Es un empate!")
-#elif maquina in reglas[persona]:
-#    print("¡Ganaste!")
-#else:
-#    print("Perdiste, mejor suerte la próxima vez.")'),
+            rx.text("texto ..."
+        ),
         ),
         rx.card(
             rx.text(maquina),
             rx.image(src="r" + maquina + ".png"),
         ),
+    )
+
+def chat() -> rx.Component:
+    return rx.box(
+        rx.foreach(
+            State.chat_history,
+            lambda messages: qa(messages[0], messages[1]),
+        )
     )
 
 
@@ -89,6 +93,7 @@ def index() -> rx.Component:
             rx.color_mode.button(position="top-right"),
             opciones(),
             elecciones(),
+            chat(),
             rx.logo(),
         ),
     )
