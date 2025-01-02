@@ -1,6 +1,6 @@
 import random
 import reflex
-from lagarto_spock.lagarto_spock import self.persona
+#from lagarto_spock.lagarto_spock import persona
 
 opciones = ['piedra', 'papel', 'tijera', 'lagarto', 'spock']
 reglas = {
