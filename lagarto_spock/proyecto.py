@@ -1,6 +1,6 @@
 import random
-import reflex as rx
-import lagarto_spock.lagarto_spock as ls
+import reflex
+#from lagarto_spock.lagarto_spock import persona
 
 opciones = ['piedra', 'papel', 'tijera', 'lagarto', 'spock']
 reglas = {
@@ -12,15 +12,16 @@ reglas = {
 }
 
 maquina = random.choice(opciones)
-class State(rx.State):
-    def answer(self):
-                        
-        if ls.persona == maquina:
-            self.answers = "¡Es un empate!"
-        elif maquina in reglas[ls.persona]:
-            self.answers = "¡Ganaste!"
-        else:
-            self.answers = "Perdiste, mejor suerte la próxima vez."
-        
-        self.chat_history = []  # reinicia el historial de chat a un chat vacio
-        self.chat_history.append((self.answers))
+#persona = input(f"Elige entre {', '.join(opciones)}: ").lower()
+
+#print(f"Tú elegiste: {persona}")
+#print(f"La máquina eligió: {maquina}")
+#
+#if persona not in opciones:
+#    print(f"Elección no válida. Por favor, elige entre {', '.join(opciones)}.")
+#elif persona == maquina:
+#    print("¡Es un empate!")
+#elif maquina in reglas[persona]:
+#    print("¡Ganaste!")
+#else:
+#    print("Perdiste, mejor suerte la próxima vez.")
