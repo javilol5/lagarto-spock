@@ -2,6 +2,7 @@ import reflex as rx
 import random
 from rxconfig import config
 from lagarto_spock.proyecto import maquina
+from lagarto_spock.proyecto import texto_chulo
 
 
 class State(rx.State):
@@ -58,21 +59,15 @@ def opciones():
 
 
 def elecciones():
-    """Muestra las elecciones del usuario y la máquina."""
+    
     return rx.flex(
         rx.card(
             rx.text("Tu elección"),
             rx.image(src=State.persona + ".png"),
         ),
         rx.card(
-#            rx.text(if persona not in opciones:
-#                        print(f"Elección no válida. Por favor, elige entre {', '.join(opciones)}.")
-#elif persona == maquina:
-#    print("¡Es un empate!")
-#elif maquina in reglas[persona]:
-#    print("¡Ganaste!")
-#else:
-#    print("Perdiste, mejor suerte la próxima vez.")'),
+            rx.text(texto_chulo)
+            ,size="5"
         ),
         rx.card(
             rx.text(maquina),

@@ -25,3 +25,17 @@ maquina = random.choice(opciones)
 #    print("¡Ganaste!")
 #else:
 #    print("Perdiste, mejor suerte la próxima vez.")
+
+
+def vaiables():
+    if persona not in opciones:
+        respuesta = f"Elección no válida. Por favor, elige entre {', '.join(opciones)}."
+    elif persona == maquina:
+        respuesta = "¡Es un empate!"
+    elif maquina in reglas[persona]:
+        respuesta = "¡Ganaste!"
+    else:
+        respuesta = "Perdiste, mejor suerte la próxima vez."
+ 
+
+texto_chulo = respuesta
